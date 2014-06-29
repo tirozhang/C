@@ -47,7 +47,7 @@ int main()
     node *current;
     do{
         current = start_node;
-        while(true){
+        while(1){
             if(yes_no(current->question)){
                 if(current->yes){
                     current =current->yes;
@@ -58,7 +58,19 @@ int main()
             }else if(current->no){
                 current = current->no;
             }else{
+                printf("who is the suspect?");
+                fgets(suspect,20,stdin);
+                node *yes_node = create(suspect);
+                current->yes = yes_node;
 
+                node *no_node = create(current->question);
+                current->no = no_node;
+
+                printf("Give me a question that is true for %s but not for %s",suspect,current->question);
+                fgets(question,80,stdin);
+                free(current->question);
+                current->question = strdup(question);
+                break;
             }
         }
         
