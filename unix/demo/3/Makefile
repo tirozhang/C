@@ -1,7 +1,8 @@
 LIBS?=	-I../../include/ -I ../../lib/ 
 CC?=	gcc
-File?=	fcntl.c
 
-test:	$(File)
-	$(CC) $(LIBS) $(File) -o test 
+fcntl:	fcntl.c
+	$(CC) $(LIBS) fcntl.c -o fcntl
 
+write:	write.c
+	$(CC) $(LIBS) write.c -o write
