@@ -1,3 +1,4 @@
-git add *
-git commit -m "commit"
-git push origin master
+#!/bin/sh
+git add .
+git commit -am "$1" 
+git push origin master 
